@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Issues Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
+<body class="w-[80%] mx-auto">
+    <section class="card bg-base-100 w-full  max-w-sm shadow-2xl flex justify-center  text-center mx-auto my-2">
+        <div class="">
+            <img class="mx-auto my-2" src="assets/github-logo.png" alt="">
+            <h1 class="text-2xl font-semibold">GitHub Issues Tracker</h1>
+            <p>Sign in to manage your issues</p>
+        </div>
+        
+        <div class="card-body">
+            <fieldset class="fieldset">
+                <label class="label font-bold">Username</label>
+                <input type="username" class="input" placeholder="Enter Username" />
+                <label class="label font-bold">Password</label>
+                <input type="password" class="input" placeholder="Enter Password" />
+                <button class="btn btn-primary mt-4">Sign In</button>
+            </fieldset>
+            <div>
+                <div class="divider">OR</div>
+                <p class="text-[#64748B]">Demo Credentials:</p>
+                <div class="bg-base-300 rounded-box grid h-20 grow place-items-center">
+                    <p><span class="font-bold">Username:</span> admin <br>
+                    <span class="font-bold">Password:</span> admin123</p>
+                </div>
+            </div>
+        </div>
+       
+    </section>
 </body>
 </html>
