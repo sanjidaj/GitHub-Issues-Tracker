@@ -6,7 +6,6 @@
     <title>HomePage</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -19,10 +18,10 @@
         }
     </style>
 </head>
-<body class="max-w-full  bg-[#EFEFEF]">
+<body class="max-w-full  bg-[#F8FAFC]">
     <header class="flex justify-between bg-white py-2 px-10 mb-10">
         <div class="flex items-center gap-2">
-            <img src="assets/github-logo_25231 1.png" alt="">
+            <img src="assets/github-logo_25231.png" alt="">
             <h1 class="text-[24px] font-semibold">GitHub Issues Tracker</h1>
         </div>
         <div class="flex gap-4">
@@ -54,7 +53,7 @@
                 </div>
                 <div>
                     <p class="font-semibold text-xl"><span>0</span> Issues</p>
-                    <p>Track and manage your project issues</p>
+                    <p class="text-[#64748B]">Track and manage your project issues</p>
                </div>
             </div>
             <div class="flex gap-2">
@@ -68,6 +67,27 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="card-section max-w-5xl mx-auto bg-[#E4E4E7] grid grid-cols-3">
+           <div id="issue-card" class="">   
+                <div>
+                    <img id="status" src="assets/Open-Status.png" alt="">
+                    <p id="priority">High</p>
+                </div>
+                <div>
+                    <h2 id="title">Fix navigation menu on mobile devices</h2>
+                    <p id="description">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+                </div>
+                <div id="labels">
+                    <p>Bug</p>
+                    <p>Help Wanted</p>
+                </div>
+                <hr>
+                <div>
+                    <p id="author">john_doe</p>
+                    <time datetime="2024-01-15T10:30:00Z">1/15/2024</time>
+                </div>
+           </div>
     </section>
 
 
