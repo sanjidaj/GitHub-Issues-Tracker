@@ -24,45 +24,50 @@ const signInBtn = document.getElementById("sign-in-btn")
     fetch(url)
      .then((res) => res.json())
      .then(json => {
-        console.log(json);
-        // displayIssue(json);
+        console.log(json.data);
+        displayIssue(json.data);
 });
 };
  
-// const displayIssue = (issues) =>{
+const displayIssue = (issues) =>{
 
-//     const cardSection = document.getElementById("card-section");
-//     cardSection.innerHTML = "";
-//     // console.log(postContainer);
+    const cardSection = document.getElementById("card-section");
+    // cardSection.innerHTML = "";
+    // console.log(postContainer);
 
 
 
-//     issues.forEach(issue =>{
-    
-//         const issueCard = document.createElement("div");
-//         issueCard.innerHTML = ` <div id="issue-card" class="">   
-//                 <div>
-//                     <img id="status" src="assets/Open-Status.png" alt="">
-//                     <p id="priority">High</p>
-//                 </div>
-//                 <div>
-//                     <h2 id="title">Fix navigation menu on mobile devices</h2>
-//                     <p id="description">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
-//                 </div>
-//                 <div id="labels">
-//                     <p>Bug</p>
-//                     <p>Help Wanted</p>
-//                 </div>
-//                 <hr>
-//                 <div>
-//                     <p id="author">john_doe</p>
-//                     <time datetime="2024-01-15T10:30:00Z">1/15/2024</time>
-//                 </div>
-//            </div>`;
+    issues.forEach(issue => {
+       const labelsBadge = issue.labels.map(label => `
+      <p class="border ${label === "bug" ? "border-[#FECACA] text-[#EF4444] bg-[#FEECEC]" : "border-[#FDE68A] text-[#D97706] bg-[#FFF8DB]"} flex gap-2 px-2 py-1 items-center rounded-2xl text-[12px] uppercase">
+      <img src="${label === "bug" ? "assets/BugDroid.png" : "assets/helpWanted.png"}" alt="${label}">
+      ${label}</p>`).join("");
+        
+        const issueCard = document.createElement("div");
+        // issueCard.className = ""
+        issueCard.innerHTML =`<div class="issue-card bg-white p-3 h-60 w-60 object-cover space-y-1 rounded-md shadow-2xl">   
+                <div class="flex justify-between">
+                    <img class="status" src="assets/Open-Status.png" alt="${issue.status}">
+                    <p  class="priority text-[12px] uppercase border border-[#FECACA] text-[#EF4444] bg-[#FEECEC] px-2 py-1 rounded-2xl ">${issue.priority}</p>
+                </div>
+                <div>
+                    <h2  class="title text-[14px] font-semibold">${issue.title}</h2>
+                    <p class="description text-[#64748B] text-[12px] ">${issue.description}</p>
+                </div>
+                <div class="flex gap-2">
+                    ${labelsBadge}
+                </div>
+                <div class="divider"></div>
+                <div>
+                    <p class="id text-[#64748B] text-[12px]" >#${issue.id} by ${issue.author}</p>
+                    <time class="text-[#64748B] text-[12px]"datetime="2024-01-15T10:30:00Z" >${issue.createdAt}</time>
+                </div>
+           </div>
+        ` ;
         
 
-//         cardSection.append(issueCard);
+        cardSection.appendChild(issueCard);
 
-//     })
-// };
+    });
+};
 loadIssues();
