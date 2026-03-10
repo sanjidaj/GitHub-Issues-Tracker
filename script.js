@@ -149,7 +149,6 @@ const displayIssue = (issues) =>{
     fetch(url)
      .then((res) => res.json())
      .then(json => {
-        console.log("API response:", json);
         displayDetails(json.data);
         document.getElementById("issue-details").showModal();
         console.log(document.getElementById("issue-details"));
@@ -217,4 +216,20 @@ const displayDetails  = (card) =>{
 
 
 };
+
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("input",(event) => {
+    const searchTitle = event.target.value;
+    if(searchTitle === ""){
+        loadIssues();
+        return;
+    }
+    const url = ` https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchTitle}`;
+    fetch(url)
+     .then(res =>res.json())
+     .then(json => {
+           displayIssue(json.data);
+     });
+});
+
 loadIssues();
