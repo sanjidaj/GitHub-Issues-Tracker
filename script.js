@@ -166,7 +166,7 @@ const displayDetails  = (card) =>{
       ${label}</p>`).join("");
       let priorityBadge;
       if(card.priority === "high"){
-        priorityBadge = "border  text-white bg-[#EF4444]";
+        priorityBadge = " text-white bg-[#EF4444]";
       }
       else if(card.priority === "low"){
         priorityBadge = "text-white bg-[#9CA3AF]";
